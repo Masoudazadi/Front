@@ -11,7 +11,7 @@ function useRequests() {
          try {
              const response=await axios.get(BASE_URL)
              const data=await response.data;
-             setProducts(data.product)
+             setProducts(data.products)
          } catch (error) {
              setErrors(error.message)
          }
