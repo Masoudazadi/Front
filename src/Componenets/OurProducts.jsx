@@ -1,10 +1,11 @@
 import Image from "../assets/phone.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEye, faHeart} from "@fortawesome/free-regular-svg-icons";
-import {useRequests,BASE_URL} from "./useRequests.js";
+import useRequests from "./useRequests.js";
 import Modal from "./Modal.jsx";
 import {useState} from "react";
 import getClosestTailwindColor from "../utils/colorHelper.js";
+import {url} from "./useRequests.js"
 
 function OurProducts() {
     const {products}= useRequests()
@@ -47,7 +48,7 @@ function OurProducts() {
                             className="flex-shrink-0 flex flex-col w-[270px] h-[350px]  justify-center items-start  "
                         >
                             <div className="relative group" >
-                                <img src={`BASE_URL${ourProduct.image}`}  className=" w-full h-[full rounded "  />
+                                <img src={`${url}${ourProduct.image}`}  className=" w-full h-[full rounded "  />
                                 <button className=" absolute bg-black text-white w-full top-[209px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-500 ease-in-out rounded-b" >
                                     Add to card
                                 </button>

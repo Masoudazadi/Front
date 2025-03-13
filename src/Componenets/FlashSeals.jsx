@@ -1,13 +1,13 @@
 import { useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart,faEye} from '@fortawesome/free-regular-svg-icons'
-import {useRequests,BASE_URL} from "./useRequests.js";
+import useRequests from "./useRequests.js";
 import Timer from "./Timer.jsx";
 import FlashSealsLoading from "./FlashSealsLoading.jsx";
 import Modal from "./Modal.jsx";
 import {Contexts} from "./Hooks/Context.jsx";
 import { useContext } from 'react';
-
+import {url} from "./useRequests.js"
 
 function FlashSeals() {
     const {products}=useRequests();
@@ -96,7 +96,7 @@ function FlashSeals() {
                         {products.map((product, index) => (
                             <div key={index} className="md:flex-shrink-0 flex flex-col  justify-center items-start mr-[30px] gap-4 ">
                                 <div className="relative group" >
-                                    <img src={`BASE_URL${product.image}`}  className="  w-[270px] h-[250px] rounded" />
+                                    <img src={`${url}${product.image}`}  className="  w-[270px] h-[250px] rounded" />
                                     {!localStorage.getItem("authToken")
                                         ?
                                         <button className="absolute bg-black text-white w-full top-[209px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b"
