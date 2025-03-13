@@ -9,7 +9,7 @@ function useRequests() {
     useEffect(() => {
     const productRequest= async ()=>{
          try {
-             const response=await axios.get("/api/v1/products")
+             const response=await axios.get(BASE_URL)
              const data=await response.data;
              setProducts(data.product)
          } catch (error) {

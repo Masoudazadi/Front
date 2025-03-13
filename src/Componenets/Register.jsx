@@ -19,7 +19,7 @@ const userSchema = z.object({
     password: z.string().min(6, {message:"Password should be at least 6 characters long"}),
 });
 
-    const BASE_URL = "http://127.0.0.1:5000/api/v1/auth/register";
+    const BASE_URL = "https://e-commerce-api-nine-chi.vercel.app/api/v1/auth/register";
 
 function Register() {
     const [created,setCreated] = useState(false)
