@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-const BASE_URL= "/api/v1/products"
+const BASE_URL = import.meta.env.VITE_API_URL + "/api/v1/products";
 function useRequests() {
     const [products,setProducts]=useState();
     const [errors,setErrors]=useState()
