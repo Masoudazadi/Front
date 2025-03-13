@@ -21,7 +21,7 @@ const userSchema = z.object({
 });
 
     const BASE_URL = `${url}/api/v1/auth/register`;
-
+    
 function Register() {
     const [created,setCreated] = useState(false)
     const { register, handleSubmit, formState: {errors},setError, clearErrors} = useForm({

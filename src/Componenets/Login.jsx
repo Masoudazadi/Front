@@ -20,7 +20,6 @@ const userSchema = z.object({
 });
 
 const BASE_URL = `${url}/api/v1/auth/login`;
-
 function Login() {
     const [success, setSuccess] = useState(false);
     const {register, handleSubmit, formState: {errors}, setError, clearErrors} = useForm({
