@@ -10,6 +10,7 @@ import Footer from "./Footer.jsx";
 import {useNavigate} from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from 'react-toastify';
+import {url} from "./useRequests.js"
 
 
 
@@ -18,7 +19,7 @@ const userSchema = z.object({
     password: z.string().min(6, {message:"Password should be at least 6 characters long"}),
 });
 
-const BASE_URL = "https://e-commerce-api-nine-chi.vercel.app/api/v1/auth/login";
+const BASE_URL = `${url}/api/v1/auth/login`;
 
 function Login() {
     const [success, setSuccess] = useState(false);
