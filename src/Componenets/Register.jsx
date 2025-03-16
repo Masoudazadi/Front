@@ -20,7 +20,7 @@ const userSchema = z.object({
     password: z.string().min(6, {message:"Password should be at least 6 characters long"}),
 });
 
-    const BASE_URL = `${url}/api/v1/auth/register`;
+const BASE_URL = `${url}/api/v1/auth/register`;
     
 function Register() {
     const [created,setCreated] = useState(false)
@@ -37,10 +37,8 @@ function Register() {
                     "Content-Type": "application/json",
                 },
             })
-            toast.success("Successfully Registered",{ position:"bottom-right", autoClose: 2000 });
+            toast.success("Successfully Registered 😉",{ position:"bottom-right", autoClose: 1500, onClose: () => navigate("/login")  });
             setCreated(true)
-            navigate ("/login")
-
         }
         catch(error){
             setError("email", { type: "server", message: error.response.data.msg});

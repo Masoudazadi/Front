@@ -9,6 +9,7 @@ import OurProducts from "./OurProducts.jsx";
 import NewArrival from "./NewArrival.jsx";
 import Information from "./Information.jsx";
 import IndexPage from "./IndexPage.jsx";
+
 function Home() {
     return (
         <div >

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart,faEye} from '@fortawesome/free-regular-svg-icons'
 import useRequests from "./useRequests.js";
 import Timer from "./Timer.jsx";
-import FlashSealsLoading from "./FlashSealsLoading.jsx";
+import FlashSealsSkeleton from "./FlashSealsSkeleton.jsx";
 import Modal from "./Modal.jsx";
 import {Contexts} from "./Hooks/Context.jsx";
 import { useContext } from 'react';
@@ -36,7 +36,7 @@ function FlashSeals() {
 
     return (
         <>
-            {!products? <FlashSealsLoading /> : <div className="mx-5 lg:mr-0 xl:ml-40 mt-[142px] h-auto" >
+            {products.length==0? <FlashSealsSkeleton /> : <div className="mx-5 lg:mr-0 xl:ml-40 mt-[142px] h-auto" >
                 <div >
                     <div className="w-auto flex flex-row gap-4 items-center">
                         <span className='inline-block w-5 h-10 bg-red-600 rounded'></span>

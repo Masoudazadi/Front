@@ -2,31 +2,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart,faEye} from '@fortawesome/free-regular-svg-icons'
 import useRequests from "./useRequests.js";
 import Modal from "./Modal.jsx";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {url} from "./useRequests.js"
-
+import BestSellingSkeleton from "./BestSellingSkeleton.jsx"
+import {Contexts} from "./Hooks/Context.jsx";
 
 function BestSellingProducts() {
     const{products}=useRequests();
     const[openModal, setOpenModal] = useState(false);
     const[modalImage, setModalImage] = useState(null);
+    const{selectedProduct,setSelectedProduct } = useContext(Contexts);
+
+    function addToBasket(product) {
+        setSelectedProduct((prev)=>[...prev, product])
+        setSelectedProduct((prev)=> prev.map(item => item.id === product.id ? { ...item, quantity: 1 } : item))
+    }
+
     function handleModal(bestSellingProduct){
         setOpenModal(true);
         setModalImage(bestSellingProduct.image)
     }
 
     let bestSellingProducts =[];
-
-    if (!products){
-        return
-    }else{
-        bestSellingProducts=products.filter((product)=> product.averageRating>4 )
-    }
-
-
-
+     bestSellingProducts=products.filter((product)=> product.averageRating>4 )
+        
+    
+  
     return (
-        <div className="mx-5 lg:mr-[135px] xl:ml-40 mt-[142px] h-auto " >
+        <> 
+            {products.length==0
+            ? <BestSellingSkeleton/>
+            :<div className="mx-5 lg:mr-[135px] xl:ml-40 mt-[142px] h-auto " >
             <div >
                 <div className="w-auto flex flex-row gap-4 items-center">
                     <span className='inline-block w-5 h-10 bg-red-600 rounded '></span>
@@ -55,9 +61,18 @@ function BestSellingProducts() {
                         >
                             <div className="relative group" >
                                 <img src={`${url}${bestSellingProduct.image}`}  className=" w-full h-[full rounded "  />
-                                <button className=" absolute bg-black text-white w-full top-[209px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-500 ease-in-out rounded-b" >
-                                    Add to card
-                                </button>
+                                {!localStorage.getItem("authToken")
+                                        ?
+                                        <button className="absolute bg-black text-white w-full top-[209px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b"
+                                          disabled={true}>
+                                        Log in for Adding to Basket
+                                        </button>
+                                        :
+                                        <button className={selectedProduct.some(p => p.id === bestSellingProduct.id)? "absolute bg-green-400 text-white w-full top-[209px] bottom-0 text-base opacity-100  group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b": "absolute bg-black text-white w-full top-[209px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b"}
+                                                onClick={()=>addToBasket(bestSellingProduct)}  disabled={selectedProduct.some(p=> p.id === bestSellingProduct.id)}>
+                                            Add to card
+                                        </button>
+                                    }
 
                                 <div className=" absolute mx-2 my-2 top-0 right-0 w-[30px] h-[76px] flex flex-col justify-between items-center">
                                     <button className=" w-[34px] h-[34px] bg-white rounded-full flex flex-row justify-center items-center">
@@ -92,7 +107,10 @@ function BestSellingProducts() {
             </div>
             <Modal openModal={openModal} setOpenModal={setOpenModal}  modalImage={modalImage}/>
 
-        </div>
+                </div>}
+        </>
+
+       
     )
 }
 

@@ -7,7 +7,7 @@ import Empty from "./Empty.jsx";
 import Basket from "./Basket.jsx";
 
 
-function CardBasket() {
+function EmptyBasket() {
     const {selectedProduct } = useContext(Contexts);
 
     return (
@@ -20,4 +20,4 @@ function CardBasket() {
     )
 }
 
-export default CardBasket
+export default EmptyBasket

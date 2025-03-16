@@ -8,7 +8,7 @@ for (let i = 0; i < 6; i++) {
     counter.push(i)
 }
 
-function FlashSealsLoading() {
+function FlashSealsSkeleton() {
 
     return (
         <div className="mx-5 lg:mr-0 xl:ml-40 mt-[142px] h-auto ">
@@ -62,4 +62,4 @@ function FlashSealsLoading() {
     )
 }
 
-export default FlashSealsLoading
+export default FlashSealsSkeleton

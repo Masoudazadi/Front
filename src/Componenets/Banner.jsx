@@ -22,7 +22,6 @@ function Banner() {
                 setDays((days)=> days-1)
             }
         }, 1000);
-
         return () => clearInterval(intervalId);
     }, [second,minute,hours,day]);
 

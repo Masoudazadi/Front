@@ -37,9 +37,8 @@ function Login() {
                 },
             })
             setSuccess(true)
-            toast.success("Successfully logged in!",{ position:"bottom-right", autoClose: 2000 });
+            toast.success("Successfully logged in 😉",{ position:"bottom-right", autoClose: 1500, onClose: () => navigate("/")  });
             localStorage.setItem("authToken", resp.data.token);
-            navigate ("/")
             } catch (error) {
             if (error.response?.data?.msg.includes("password")) {
                 setError("password", { type: "server", message: error.response.data.msg});

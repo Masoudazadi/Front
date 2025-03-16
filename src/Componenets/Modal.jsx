@@ -1,4 +1,5 @@
 import {useEffect} from "react";
+import url from "./useRequests"
 
 function Modal({openModal, setOpenModal,modalImage }) {
 
@@ -39,7 +40,7 @@ function Modal({openModal, setOpenModal,modalImage }) {
                             </div>
 
                             <div className="flex flex-col w-auto h-auto justify-center items-center">
-                                <img src={`http://127.0.0.1:5000${modalImage}`} className="w-[30%] h-[30%]"/>
+                                <img src={`${url}${modalImage}`} className="w-[30%] h-[30%]"/>
                             </div>
 
                         </div>

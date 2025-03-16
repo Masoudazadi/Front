@@ -1,25 +1,21 @@
-import Offer from "./Offer.jsx";
-import Navbar from "./Navbar.jsx";
-import Footer from "./Footer.jsx";
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import {Contexts} from "./Hooks/Context.jsx";
-import Empty from "./Empty.jsx";
-
+import {url} from "./useRequests.js"
 function Basket() {
     const {selectedProduct,setSelectedProduct } = useContext(Contexts);
-
 
     function increment(product){
         setSelectedProduct((prev)=>[...prev], product.quantity++);
         }
         function decrement(product){
             setSelectedProduct((prev)=>[...prev], product.quantity--);
-        }
-console.log(selectedProduct)
+        };
+
     function removeProduct(product){
         const currentProduct = selectedProduct.filter((pro)=>pro.id !== product.id);
         setSelectedProduct(currentProduct);
-    }
+    };
+
     return (
         <>
             <div className="w-full my-[180px]  h-full ">
@@ -39,7 +35,7 @@ console.log(selectedProduct)
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                                         </svg>
                                     </button>
-                                    <img src={`http://127.0.0.1:5000${product.image}`} className=" w-auto h-[50px] rounded "/>
+                                    <img src={`${url}${product.image}`} className=" w-auto h-[50px] rounded "/>
                                 </div>
                                <span className="h-auto">{product.name}</span>
                            </div>
