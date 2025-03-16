@@ -15,7 +15,6 @@ function useRequests() {
              const response=await axios.get(BASE_URL)
              const data=await response.data;
              setProducts(data.products)
-             console.log("re rendered")
          } catch (error) {
              setErrors(error.message)
          }
