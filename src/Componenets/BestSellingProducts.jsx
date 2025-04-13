@@ -60,15 +60,15 @@ function BestSellingProducts() {
                             className="flex-shrink-0 flex flex-col w-[270px] my-[60px] h-[350px]  justify-center items-start  "
                         >
                             <div className="relative group" >
-                                <img src={`${url}${bestSellingProduct.image}`}  className=" w-full h-[full rounded "  />
+                                <img src={`${url}${bestSellingProduct.image}`}  className=" w-full h-full rounded "  />
                                 {!localStorage.getItem("authToken")
                                         ?
-                                        <button className="absolute bg-black text-white w-full top-[209px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b"
+                                        <button className="absolute bg-black text-white w-full h-[50px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b"
                                           disabled={true}>
                                         Log in for Adding to Basket
                                         </button>
                                         :
-                                        <button className={selectedProduct.some(p => p.id === bestSellingProduct.id)? "absolute bg-green-400 text-white w-full top-[209px] bottom-0 text-base opacity-100  group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b": "absolute bg-black text-white w-full top-[209px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b"}
+                                        <button className={selectedProduct.some(p => p.id === bestSellingProduct.id)? "absolute bg-green-400 text-white w-full h-[50px] bottom-0 text-base opacity-100  group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b": "absolute bg-black text-white w-full top-[209px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b"}
                                                 onClick={()=>addToBasket(bestSellingProduct)}  disabled={selectedProduct.some(p=> p.id === bestSellingProduct.id)}>
                                             Add to card
                                         </button>
@@ -89,7 +89,7 @@ function BestSellingProducts() {
 
                             </div>
                             <div className="flex flex-col gap-2">
-                                <span className="text-base text-black">{bestSellingProduct.name}</span>
+                                <span className="text-base text-black">{`${bestSellingProduct.name.substring(0,30)} ....`}</span>
                                 <div className="flex flex-row gap-3" >
                                     <span className="text-base text-red-600"> ${bestSellingProduct.price}</span>
                                     <strike className="text-base text-gray-400"> $190</strike>
