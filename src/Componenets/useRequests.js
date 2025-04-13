@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 export const BASE_URL = import.meta.env.VITE_API_URL + "/api/v1/products";
-export const url=import.meta.env.VITE_API_URL;
+export const url= import.meta.env.VITE_API_URL;
 
 
 function useRequests() {
@@ -21,7 +21,7 @@ function useRequests() {
     }
     productRequest()
        }, []);
-return {products,setProducts,errors,setErrors}
+return {products,setProducts,errors,setErrors,}
 }
 
 export default useRequests

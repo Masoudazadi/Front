@@ -1,8 +1,7 @@
 import {useEffect} from "react";
-import url from "./useRequests"
+import {url} from "./useRequests"
 
 function Modal({openModal, setOpenModal,modalImage }) {
-
     useEffect(() => {
         if (openModal) {
             document.body.style.overflow = "hidden";
