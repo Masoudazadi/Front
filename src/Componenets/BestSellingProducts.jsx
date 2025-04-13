@@ -68,7 +68,7 @@ function BestSellingProducts() {
                                         Log in for Adding to Basket
                                         </button>
                                         :
-                                        <button className={selectedProduct.some(p => p.id === bestSellingProduct.id)? "absolute bg-green-400 text-white w-full h-[50px] bottom-0 text-base opacity-100  group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b": "absolute bg-black text-white w-full top-[209px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b"}
+                                        <button className={selectedProduct.some(p => p.id === bestSellingProduct.id)? "absolute bg-green-400 text-white w-full h-[50px] bottom-0 text-base opacity-100  group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b": "absolute bg-black text-white w-full h-[50px] bottom-0 text-base opacity-100 xl:opacity-0 group-hover:opacity-100  transition-opacity duration-700 ease-in-out rounded-b"}
                                                 onClick={()=>addToBasket(bestSellingProduct)}  disabled={selectedProduct.some(p=> p.id === bestSellingProduct.id)}>
                                             Add to card
                                         </button>
